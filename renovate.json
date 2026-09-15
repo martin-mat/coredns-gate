@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^cnti-testsuite\\.yaml$/"],
+      "matchStrings": ["chart_version:\\s*(?<currentValue>\\S+)"],
+      "depNameTemplate": "coredns",
+      "datasourceTemplate": "helm",
+      "registryUrlTemplate": "https://coredns.github.io/helm"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+---
+# CNTi Test Suite configuration: the upstream CoreDNS Helm chart, unmodified.
+# chart_version is pinned so Renovate can open a PR for every upstream release;
+# the certification run on that PR is the gate. The image follows the chart's
+# appVersion.
+config_version: v2
+common:
+  container_names:
+    - name: coredns
+deployments:
+  helm_charts:
+    - name: coredns
+      helm_chart_name: coredns
+      helm_repo_name: coredns
+      helm_repo_url: https://coredns.github.io/helm
+      chart_version: 1.47.1

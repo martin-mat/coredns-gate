@@ -1,0 +1,24 @@
+name: CNTi certification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 4 * * 1"   # weekly: re-certify against the latest cnti-testsuite release
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Runs `cnti-testsuite cert` on a kind cluster; the job fails iff the
+      # certification criterion is not met.
+      # TODO: switch to lfn-cnti/testsuite-action@v1 once v1.0.0 is tagged
+      - uses: lfn-cnti/testsuite-action@action-v1
+        with:
+          cnf_config: cnti-testsuite.yaml
