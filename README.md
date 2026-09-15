@@ -1,6 +1,7 @@
 # CoreDNS certification gate
 
 [![CNTi certification](https://github.com/martin-mat/coredns-gate/actions/workflows/cnti.yml/badge.svg)](https://github.com/martin-mat/coredns-gate/actions/workflows/cnti.yml)
+![CNTi cert](https://github.com/martin-mat/coredns-gate/raw/badges/cnti-badge.svg)
 
 The smallest possible use of the [CNTi Test Suite GitHub Action](https://github.com/lfn-cnti/testsuite-action):
 the upstream [CoreDNS Helm chart](https://github.com/coredns/helm), unmodified, certified on
@@ -15,6 +16,9 @@ every change.
   releases were certified.
 
 The workflow also runs weekly, so a new `cnti-testsuite` release re-certifies the unchanged chart.
+
+The second badge is the score, published by the action to the [`badges`](https://github.com/martin-mat/coredns-gate/tree/badges)
+branch after every run on `main` - no secrets involved.
 
 Results (per-test table, annotations for failed tests, the results YAML as an artifact) are on
 each run's summary page.

@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # the action publishes the badge to the 'badges' branch
 
 jobs:
   cert:
@@ -22,3 +22,4 @@ jobs:
       - uses: lfn-cnti/testsuite-action@action-v1
         with:
           cnf_config: cnti-testsuite.yaml
+          badge_branch: badges
